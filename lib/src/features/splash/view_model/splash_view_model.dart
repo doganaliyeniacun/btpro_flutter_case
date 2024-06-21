@@ -14,14 +14,8 @@ class SplashViewModel extends GetxController {
     super.onInit();
     FlutterNativeSplash.remove();
     Get.find<NetworkController>().isConnected = _goToTheHomePage;
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-    splash_text.value = Get.find<RemoteConfigService>()
-        .getString(RemoteConfigKeys.SPLASH_TEXT);
-    print(splash_text.value);
+    splash_text.value =
+        Get.find<RemoteConfigService>().getString(RemoteConfigKeys.SPLASH_TEXT);
   }
 
   void _goToTheHomePage() {
