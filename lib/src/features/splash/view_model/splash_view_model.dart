@@ -7,20 +7,26 @@ import '../../../product/network/network_controller.dart';
 import '../../../product/routes/app_routes.dart';
 
 class SplashViewModel extends GetxController {
-  final RxString splash_text = ''.obs;
+  final RxString splashText = ''.obs;
 
   @override
   void onInit() {
     super.onInit();
-    FlutterNativeSplash.remove();
-    Get.find<NetworkController>().isConnected = _goToTheHomePage;
-    splash_text.value =
-        Get.find<RemoteConfigService>().getString(RemoteConfigKeys.SPLASH_TEXT);
+    _init();
   }
 
-  void _goToTheHomePage() {
+  void _init() {
+    FlutterNativeSplash.remove();
+    splashText.value =
+        Get.find<RemoteConfigService>().getString(RemoteConfigKeys.SPLASH_TEXT);
+    Get.find<NetworkController>().isConnected = _goToTheHomePage;
+  }
+
+  void _goToTheHomePage({
+    int delaySec = 3,
+  }) {
     if (Get.currentRoute.contains(Routes.SPLASH)) {
-      Future.delayed(const Duration(seconds: 3)).then(
+      Future.delayed(Duration(seconds: delaySec)).then(
         (value) {
           Get.offAllNamed(Routes.HOME);
         },

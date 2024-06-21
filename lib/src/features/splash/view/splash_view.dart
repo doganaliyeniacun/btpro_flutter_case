@@ -13,7 +13,7 @@ class SplashView extends StatelessWidget {
       body: Center(
         child: Obx(
           () => Text(
-            vm.splash_text.value,
+            vm.splashText.value,
             style: const TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
