@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "857590838321",
+    "project_id": "btpro-flutter-case-50832",
+    "storage_bucket": "btpro-flutter-case-50832.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857590838321:android:69f954de092730d6855110",
+        "android_client_info": {
+          "package_name": "com.example.btpro_flutter_case"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRHoWZVtdbf5QaEgRAONVtx7lQrEoTatE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
