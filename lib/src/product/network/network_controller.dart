@@ -1,4 +1,3 @@
-import 'package:btpro_flutter_case/src/product/routes/app_routes.dart';
 import 'package:btpro_flutter_case/src/product/widgets/custom_snackbar.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,7 @@ import 'package:get/get.dart';
 class NetworkController extends GetxController {
   final Connectivity _connectivity = Connectivity();
   late final String? messageText;
-  late final VoidCallback? isConnected;
+  VoidCallback? isConnected;
 
   NetworkController({
     this.isConnected,

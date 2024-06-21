@@ -9,7 +9,7 @@ class SplashViewModel extends GetxController {
   void onInit() {
     super.onInit();
     FlutterNativeSplash.remove();
-    Get.put(NetworkController(isConnected: _goToTheHomePage));
+    Get.find<NetworkController>().isConnected = _goToTheHomePage;
   }
 
   void _goToTheHomePage() {
