@@ -1,4 +1,3 @@
-import 'package:btpro_flutter_case/src/features/home/model/movie_not_found.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
 
@@ -20,7 +19,7 @@ class MovieService extends GetxController implements IMovieService {
   @override
   Future<void> fetchMovies(String movieName) async {
     try {
-      final response = await _dio.get('', queryParameters: {'t': movieName});
+      final response = await _dio.get('/', queryParameters: {'t': movieName});
 
       moviesList.value = [];
 
