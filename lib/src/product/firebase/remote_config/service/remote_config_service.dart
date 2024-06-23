@@ -12,8 +12,16 @@ class RemoteConfigService extends GetxController
   @override
   void onInit() async {
     super.onInit();
-    await _setConfigSettings();
-    await _fetchAndActivate();
+    await _init();
+  }
+
+  Future<void> _init() async {
+    try {
+      await _setConfigSettings();
+      await _fetchAndActivate();
+    } catch (e) {
+      print(e);
+    }
   }
 
   Future<void> _setConfigSettings() async {

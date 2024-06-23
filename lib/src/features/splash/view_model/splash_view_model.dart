@@ -4,7 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
 import '../../../product/network/network_controller.dart';
-import '../../../product/routes/app_routes.dart';
+import '../../../product/resources/app_routes.dart';
 
 class SplashViewModel extends GetxController {
   final RxString splashText = ''.obs;
@@ -19,13 +19,22 @@ class SplashViewModel extends GetxController {
     FlutterNativeSplash.remove();
     splashText.value =
         Get.find<RemoteConfigService>().getString(RemoteConfigKeys.SPLASH_TEXT);
-    Get.find<NetworkController>().isConnected = _goToTheHomePage;
   }
 
-  void _goToTheHomePage({
-    int delaySec = 3,
-  }) {
-    if (Get.currentRoute.contains(Routes.SPLASH)) {
+  @override
+  void onReady() {
+    super.onReady();
+    final networkController = Get.put<NetworkController>(
+      NetworkController(),
+      permanent: true,
+    );
+    networkController.isConnected = _goToTheMoviePage;
+  }
+
+  void _goToTheMoviePage({int delaySec = 3}) {
+    bool isSplashPage = Get.currentRoute.contains(Routes.SPLASH); 
+
+    if (isSplashPage) {
       Future.delayed(Duration(seconds: delaySec)).then(
         (value) {
           Get.offAllNamed(Routes.MOVIE);

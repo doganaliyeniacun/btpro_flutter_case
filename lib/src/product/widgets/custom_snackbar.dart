@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 SnackbarController customSnackBar(
-  String messageText, {
+  String? messageText, {
   double fontSize = 14,
   Color textColor = Colors.white,
 }) {
   return Get.rawSnackbar(
     messageText: Text(
-      messageText,
+      messageText ?? '',
       style: TextStyle(
         color: textColor,
         fontSize: fontSize,

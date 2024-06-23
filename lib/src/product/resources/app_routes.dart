@@ -1,6 +1,4 @@
-abstract class Routes {
-  Routes._();
-
+class Routes {
   static const MOVIE = '/movie';
   static const SPLASH = '/splash';  
 }

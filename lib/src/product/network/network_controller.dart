@@ -9,8 +9,7 @@ class NetworkController extends GetxController {
   VoidCallback? isConnected;
 
   NetworkController({
-    this.isConnected,
-    this.messageText = 'Please check your internet connection',
+    this.messageText = 'Please check your internet connection!',
   });
 
   @override
@@ -21,12 +20,11 @@ class NetworkController extends GetxController {
 
   void _updateStatus(List<ConnectivityResult> result) {
     if (result.contains(ConnectivityResult.none)) {
-      customSnackBar(messageText ?? '');
+      customSnackBar(messageText);
     } else {
       if (isConnected != null) {
         isConnected!();
       }
-
       if (Get.isSnackbarOpen) {
         Get.closeCurrentSnackbar();
       }

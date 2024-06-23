@@ -9,6 +9,7 @@
 # packages, and plugins designed to encourage good coding practices.
 analyzer:
   errors:
+    constant_identifier_names: ignore
     non_constant_identifier_names: ignore
 include: package:flutter_lints/flutter.yaml
 

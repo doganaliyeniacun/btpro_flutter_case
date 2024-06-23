@@ -1,3 +1,4 @@
+import 'package:btpro_flutter_case/src/product/resources/app_strings.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -6,7 +7,6 @@ import 'package:get/get.dart';
 
 import '../../../firebase_options.dart';
 import '../firebase/remote_config/service/remote_config_service.dart';
-import '../network/network_controller.dart';
 
 class AppSetup {
   static Future<void> init() async {
@@ -14,17 +14,14 @@ class AppSetup {
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
     //dotenv
-    await dotenv.load(fileName: ".env");
+    await dotenv.load(fileName: AppStrings.DOT_ENV);
 
     //firebase
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
 
-    // Dependency injections
-    Get.put(NetworkController(), permanent: true);
-    Get.put(RemoteConfigService(), permanent: true);
-
-    
+    // Dependency
+    Get.put(RemoteConfigService(), permanent: true);    
   }
 }

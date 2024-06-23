@@ -2,8 +2,7 @@
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class AppConstant {
+class AppHttp {
   static const String BASE_URL = 'https://omdbapi.com';
-  static String API_KEY = dotenv.get('API_KEY');
-  static  Map<String, String> BASE_QUERY_PARAMETERS = {'apikey': API_KEY};
+  static String apiKey = dotenv.get('API_KEY');
 }

@@ -1,6 +1,6 @@
 import 'package:btpro_flutter_case/src/features/movie/model/movie.dart';
 import 'package:btpro_flutter_case/src/features/movie/service/movie_service.dart';
-import 'package:btpro_flutter_case/src/product/constants/app/app_constant.dart';
+import 'package:btpro_flutter_case/src/product/resources/app_http.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
@@ -23,8 +23,8 @@ class MovieViewModel extends GetxController implements IMovieViewModel {
   void _init() {
     _dio = Dio(
       BaseOptions(
-        baseUrl: AppConstant.BASE_URL,
-        queryParameters: AppConstant.BASE_QUERY_PARAMETERS,
+        baseUrl: AppHttp.BASE_URL,
+        queryParameters: {'apikey': AppHttp.apiKey},
       ),
     );
     service = Get.put(MovieService(_dio));
@@ -35,10 +35,10 @@ class MovieViewModel extends GetxController implements IMovieViewModel {
 
   @override
   Future<void> getMovies(String movieName) async {
-    checkLoading();
+    _checkLoading();
     await service.fetchMovies(movieName);
-    checkLoading();
+    _checkLoading();
   }
 
-  void checkLoading() => isLoading.value = !isLoading.value;
+  void _checkLoading() => isLoading.value = !isLoading.value;
 }

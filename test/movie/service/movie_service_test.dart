@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:btpro_flutter_case/src/features/movie/service/movie_service.dart';
-import 'package:btpro_flutter_case/src/product/constants/app/app_constant.dart';
+import 'package:btpro_flutter_case/src/product/resources/app_http.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -14,8 +14,8 @@ void main() {
     dotenv.testLoad(fileInput: File('.env').readAsStringSync());
     final Dio dio = Dio(
       BaseOptions(
-        baseUrl: AppConstant.BASE_URL,
-        queryParameters: AppConstant.BASE_QUERY_PARAMETERS,
+        baseUrl: AppHttp.BASE_URL,
+        queryParameters: {'apikey': AppHttp.apiKey},
       ),
     );
     service = Get.put(MovieService(dio));

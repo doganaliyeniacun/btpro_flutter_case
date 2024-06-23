@@ -7,7 +7,12 @@ class MovieView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Home page'),
+        child: Text(
+          'Home page',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
       ),
     );
   }
