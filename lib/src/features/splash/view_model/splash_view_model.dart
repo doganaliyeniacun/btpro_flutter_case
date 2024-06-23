@@ -1,5 +1,5 @@
 import 'package:btpro_flutter_case/src/product/firebase/remote_config/remote_config_keys.dart';
-import 'package:btpro_flutter_case/src/product/firebase/remote_config/remote_config_service.dart';
+import 'package:btpro_flutter_case/src/product/firebase/remote_config/service/remote_config_service.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +28,7 @@ class SplashViewModel extends GetxController {
     if (Get.currentRoute.contains(Routes.SPLASH)) {
       Future.delayed(Duration(seconds: delaySec)).then(
         (value) {
-          Get.offAllNamed(Routes.HOME);
+          Get.offAllNamed(Routes.MOVIE);
         },
       );
     }

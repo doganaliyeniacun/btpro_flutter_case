@@ -1,16 +1,15 @@
-import 'package:btpro_flutter_case/src/features/home/model/movie.dart';
-import 'package:btpro_flutter_case/src/features/home/service/movie_service.dart';
+import 'package:btpro_flutter_case/src/features/movie/model/movie.dart';
+import 'package:btpro_flutter_case/src/features/movie/service/movie_service.dart';
 import 'package:btpro_flutter_case/src/product/constants/app/app_constant.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 
-abstract class IHomeViewModel {
+abstract class IMovieViewModel {
   RxList<Movie> get moviesList;
   Future<void> getMovies(String movieName);
 }
 
-class HomeViewModel extends GetxController implements IHomeViewModel {
+class MovieViewModel extends GetxController implements IMovieViewModel {
   late final IMovieService service;
   late final Dio _dio;
   RxBool isLoading = false.obs;
@@ -18,10 +17,14 @@ class HomeViewModel extends GetxController implements IHomeViewModel {
   @override
   void onInit() {
     super.onInit();
+    _init();
+  }
+
+  void _init() {
     _dio = Dio(
       BaseOptions(
         baseUrl: AppConstant.BASE_URL,
-        queryParameters: {'apikey': AppConstant.API_KEY},
+        queryParameters: AppConstant.BASE_QUERY_PARAMETERS,
       ),
     );
     service = Get.put(MovieService(_dio));

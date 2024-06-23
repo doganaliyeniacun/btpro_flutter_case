@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:btpro_flutter_case/src/features/home/service/movie_service.dart';
+import 'package:btpro_flutter_case/src/features/movie/service/movie_service.dart';
 import 'package:btpro_flutter_case/src/product/constants/app/app_constant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -11,12 +11,11 @@ void main() {
   late final IMovieService service;
 
   setUp(() {
-    // Loading from a static string.
     dotenv.testLoad(fileInput: File('.env').readAsStringSync());
     final Dio dio = Dio(
       BaseOptions(
         baseUrl: AppConstant.BASE_URL,
-        queryParameters: {'apikey': AppConstant.API_KEY},
+        queryParameters: AppConstant.BASE_QUERY_PARAMETERS,
       ),
     );
     service = Get.put(MovieService(dio));

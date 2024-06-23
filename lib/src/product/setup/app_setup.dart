@@ -5,7 +5,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
 import '../../../firebase_options.dart';
-import '../firebase/remote_config/remote_config_service.dart';
+import '../firebase/remote_config/service/remote_config_service.dart';
 import '../network/network_controller.dart';
 
 class AppSetup {
