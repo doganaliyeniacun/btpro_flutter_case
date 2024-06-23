@@ -1,3 +1,4 @@
+import 'package:btpro_flutter_case/src/product/firebase/analytics/service/analytics_service.dart';
 import 'package:btpro_flutter_case/src/product/resources/app_strings.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,9 +22,10 @@ class AppSetup {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
-
+    await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
+    
     // Dependency
-    Get.put(RemoteConfigService(), permanent: true);    
+    Get.put(RemoteConfigService(), permanent: true);
+    Get.put(AnalyticsService(), permanent: true);
   }
 }

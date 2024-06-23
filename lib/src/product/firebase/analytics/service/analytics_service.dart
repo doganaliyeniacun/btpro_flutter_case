@@ -1,21 +1,18 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 
-import '../../../../features/movie/model/movie.dart';
-
 class AnalyticsService {
-  late final FirebaseAnalytics analytics;
+  final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
 
-  AnalyticsService() {
-    analytics = FirebaseAnalytics.instance;
-  }
+  FirebaseAnalyticsObserver getAnalyticsObserver() =>
+      FirebaseAnalyticsObserver(analytics: _analytics);  
 
-  void logMovieEvent(Movie movie) async {
-    Map<String, dynamic> dynamicMap = movie.toJson();
-    Map<String, Object> objectMap = dynamicMap.map((key, value) => MapEntry(key, value ?? '' as Object));
-
-    await analytics.logEvent(
-      name: 'movie_event',
-      parameters: objectMap,
+  Future<void> logEvent({
+    required String eventName,
+    required Map<String, Object> parameters,
+  }) async {
+    await _analytics.logEvent(
+      name: eventName,
+      parameters: parameters,
     );
   }
 }

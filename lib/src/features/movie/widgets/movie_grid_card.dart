@@ -20,7 +20,9 @@ class MovieGridCard extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            Get.toNamed(AppRoutes.MOVIE_DETAIL, arguments: movie.imdbId.toString());
+            Get.toNamed(AppRoutes.MOVIE_DETAIL,
+                arguments: movie.imdbId.toString());
+           
           },
           child: AspectRatio(
             aspectRatio: 2 / 3,
