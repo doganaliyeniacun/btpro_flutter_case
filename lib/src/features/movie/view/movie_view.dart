@@ -12,7 +12,7 @@ class MovieView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final vm = Get.find<MovieViewModel>();
+    final vm = Get.put<MovieViewModel>(MovieViewModel());
 
     return SafeArea(
       child: Scaffold(

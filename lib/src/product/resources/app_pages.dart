@@ -1,5 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:btpro_flutter_case/src/features/home/view/home_view.dart';
 import 'package:btpro_flutter_case/src/features/movie/view/movie_view.dart';
 import 'package:btpro_flutter_case/src/product/resources/app_routes.dart';
 import 'package:get/get.dart';
@@ -19,14 +20,16 @@ class AppPages {
       binding: SplashBinding(),
     ),
     GetPage(
+      name: AppRoutes.HOME,
+      page: () => HomePage(),
+    ),
+    GetPage(
       name: AppRoutes.MOVIE,
       page: () => const MovieView(),
-      binding: MovieBinding(),
     ),
     GetPage(
       name: AppRoutes.MOVIE_DETAIL,
       page: () => const MovieDetailView(),
-      binding: MovieDetailBinding(),
     ),
   ];
 }
