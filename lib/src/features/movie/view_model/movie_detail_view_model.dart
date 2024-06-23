@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../model/movie.dart';
 
-class MovieDetailViewModel extends GetxController {
+class MovieDetailsViewModel extends GetxController {
   late final IMovieService _service;
   late final String? _imdbId;
   late final Movie? movie;

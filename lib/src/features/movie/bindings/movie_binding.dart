@@ -14,8 +14,8 @@ class MovieBinding extends Bindings {
 class MovieDetailBinding extends Bindings {
   @override
   void dependencies() {
-    Get.put<MovieDetailViewModel>(
-      MovieDetailViewModel(),
+    Get.put<MovieDetailsViewModel>(
+      MovieDetailsViewModel(),
     );
   }
 }
