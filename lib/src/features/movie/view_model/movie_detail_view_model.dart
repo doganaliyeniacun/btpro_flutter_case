@@ -22,7 +22,8 @@ class MovieDetailsViewModel extends GetxController {
 
   Future<void> _logMovie() async {
     Map<String, dynamic> dynamicMap = movie.toJson();
-    Map<String, Object> objectMap = dynamicMap.map((key, value) => MapEntry(key, value ?? '' as Object));
+    Map<String, Object> objectMap =
+        dynamicMap.map((key, value) => MapEntry(key, value ?? '' as Object));
 
     await _analyticsService.logEvent(
       eventName: 'movie_event',

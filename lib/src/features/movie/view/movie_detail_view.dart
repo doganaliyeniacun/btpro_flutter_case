@@ -25,7 +25,7 @@ class MovieDetailView extends StatelessWidget {
               Stack(
                 children: [
                   // poster
-                  _poster(vm.movie!.poster.toString()),
+                  _poster(vm.movie.poster.toString()),
                   Positioned(
                     top: AppSize.S_20,
                     // go to back button
@@ -61,27 +61,27 @@ class MovieDetailView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             // movie title
-                            _title(vm.movie!.title.toString(), AppSize.S_20),
+                            _title(vm.movie.title.toString(), AppSize.S_20),
                             const SizedBox(height: AppSize.S_10),
                             // release information
-                            _releasedInfo(vm.movie!.released.toString()),
+                            _releasedInfo(vm.movie.released.toString()),
                           ],
                         ),
                         Column(
                           children: [
                             // rating bar
                             _customRatingBarIndicator(
-                                vm.movie!.imdbRating.toString()),
+                                vm.movie.imdbRating.toString()),
                             const SizedBox(height: AppSize.S_10),
                             // votes
-                            _votes(vm.movie!.imdbVotes.toString()),
+                            _votes(vm.movie.imdbVotes.toString()),
                           ],
                         ),
                       ],
                     ),
                     const SizedBox(height: AppSize.S_10),
                     // plot
-                    _customAutoSizeText(vm.movie!.plot.toString()),
+                    _customAutoSizeText(vm.movie.plot.toString()),
                     const SizedBox(height: AppSize.S_10),
                   ],
                 ),
