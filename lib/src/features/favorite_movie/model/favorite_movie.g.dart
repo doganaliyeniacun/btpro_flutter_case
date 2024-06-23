@@ -16,21 +16,25 @@ class FavoriteMovieAdapter extends TypeAdapter<FavoriteMovie> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return FavoriteMovie()
-      ..title = fields[0] as String
-      ..imageUrl = fields[1] as String
-      ..isFavorite = fields[2] as bool;
+    return FavoriteMovie(
+      imdbId: fields[0] as String,
+      title: fields[1] as String,
+      imageUrl: fields[2] as String,
+      isFavorite: fields[3] as bool,
+    );
   }
 
   @override
   void write(BinaryWriter writer, FavoriteMovie obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
-      ..write(obj.title)
+      ..write(obj.imdbId)
       ..writeByte(1)
-      ..write(obj.imageUrl)
+      ..write(obj.title)
       ..writeByte(2)
+      ..write(obj.imageUrl)
+      ..writeByte(3)
       ..write(obj.isFavorite);
   }
 

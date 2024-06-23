@@ -5,6 +5,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 import '../../../product/resources/app_values.dart';
+import '../../../product/widgets/favorite_button.dart';
 import '../../../product/widgets/image_with_shimmer.dart';
 
 class MovieDetailView extends StatelessWidget {
@@ -35,14 +36,10 @@ class MovieDetailView extends StatelessWidget {
                     left: Get.width * 0.8,
                     top: AppSize.S_20,
                     // favorite button
-                    child: ElevatedButton.icon(
-                      onPressed: () {},
-                      label: const Icon(
-                        Icons.favorite_border_outlined,
-                        color: Colors.red,
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
+                    child: Obx(
+                      () => FavoriteButton(
+                        isFavorite: vm.isFavorite.value,
+                        onFavorite: vm.changeFavoriteState,
                       ),
                     ),
                   ),
