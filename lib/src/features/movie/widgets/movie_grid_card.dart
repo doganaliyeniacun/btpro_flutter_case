@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../product/resources/app_routes.dart';
 import '../../../product/resources/app_values.dart';
 import '../../../product/widgets/image_with_shimmer.dart';
 import '../model/movie.dart';
@@ -17,7 +19,9 @@ class MovieGridCard extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(AppRoutes.MOVIE_DETAIL, arguments: movie.imdbId.toString());
+          },
           child: AspectRatio(
             aspectRatio: 2 / 3,
             child: ClipRRect(

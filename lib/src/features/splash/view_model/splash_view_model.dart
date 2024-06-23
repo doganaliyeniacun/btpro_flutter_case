@@ -30,12 +30,12 @@ class SplashViewModel extends GetxController {
   }
 
   void _goToTheMoviePage({int delaySec = 3}) {
-    bool isSplashPage = Get.currentRoute.contains(Routes.SPLASH);
+    bool isSplashPage = Get.currentRoute.contains(AppRoutes.SPLASH);
 
     if (isSplashPage) {
       Future.delayed(Duration(seconds: delaySec)).then(
         (value) {
-          Get.offAllNamed(Routes.MOVIE);
+          Get.offAllNamed(AppRoutes.MOVIE);
         },
       );
     }
