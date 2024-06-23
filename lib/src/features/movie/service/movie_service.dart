@@ -36,7 +36,7 @@ class MovieService extends GetxController implements IMovieService {
         }
       }
     } on DioException catch (e) {
-      print(e.message);
+      rethrow;
     }
   }
 }

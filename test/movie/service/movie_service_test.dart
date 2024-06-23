@@ -15,7 +15,7 @@ void main() {
     final Dio dio = Dio(
       BaseOptions(
         baseUrl: AppHttp.BASE_URL,
-        queryParameters: {'apikey': AppHttp.apiKey},
+        queryParameters: AppHttp.baseQueryParameters,
       ),
     );
     service = Get.put(MovieService(dio));

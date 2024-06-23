@@ -10,6 +10,7 @@ class SplashView extends StatelessWidget {
     final vm = Get.find<SplashViewModel>();
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Obx(
           () => Text(
