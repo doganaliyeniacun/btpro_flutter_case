@@ -19,16 +19,20 @@ class MoviesGridView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: AppPadding.P_12),
         itemCount: movies.length,
         physics: const BouncingScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 12,
-          childAspectRatio: 0.55,
-        ),
+        gridDelegate: _gridDelegate(),
         itemBuilder: (context, index) {
           final movie = movies[index];
           return MovieGridCard(movie: movie);
         },
       ),
+    );
+  }
+
+  SliverGridDelegateWithFixedCrossAxisCount _gridDelegate() {
+    return const SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 2,
+      crossAxisSpacing: 12,
+      childAspectRatio: 0.55,
     );
   }
 }

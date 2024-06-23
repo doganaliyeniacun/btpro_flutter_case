@@ -35,7 +35,7 @@ class MovieService extends GetxController implements IMovieService {
           moviesList.assignAll(list);
         }
       }
-    } on DioException catch (e) {
+    } on DioException {
       rethrow;
     }
   }

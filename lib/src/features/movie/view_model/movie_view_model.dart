@@ -45,22 +45,22 @@ class MovieViewModel extends GetxController implements IMovieViewModel {
     }
   }
 
-  void _setRequestStatus(RequestStatus value) => requestStatus.value = value;
+  void setRequestStatus(RequestStatus value) => requestStatus.value = value;
 
-  void _success() => _setRequestStatus(RequestStatus.SUCCESS);
+  void _success() => setRequestStatus(RequestStatus.SUCCESS);
 
-  void _loading() => _setRequestStatus(RequestStatus.LOADING);
+  void _loading() => setRequestStatus(RequestStatus.LOADING);
 
   void _notFound() {
     if (moviesList.first.error != null) {
-      _setRequestStatus(RequestStatus.NOT_FOUND);
+      setRequestStatus(RequestStatus.NOT_FOUND);
       final message = moviesList.first.error;
       Get.rawSnackbar(message: message, duration: const Duration(seconds: 3));
     }
   }
 
   void _error(DioException e) {
-    _setRequestStatus(RequestStatus.ERROR);
+    setRequestStatus(RequestStatus.ERROR);
     Get.rawSnackbar(message: e.message, duration: const Duration(seconds: 3));
   }
 }

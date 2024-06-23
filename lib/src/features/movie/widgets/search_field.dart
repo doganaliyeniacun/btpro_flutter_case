@@ -46,9 +46,7 @@ class _SearchFieldState extends State<SearchField> {
             Icons.search_rounded,
           ),
           suffixIcon: GestureDetector(
-            onTap: () {
-              _textController.text = '';
-            },
+            onTap: _cleanText,
             child: const Icon(
               Icons.clear_rounded,
             ),
@@ -60,15 +58,18 @@ class _SearchFieldState extends State<SearchField> {
     );
   }
 
-  void _onTextChanged(String text) {
-    final vm = Get.find<MovieViewModel>();
+  void _cleanText() {
+    _textController.text = '';
+    Get.find<MovieViewModel>().setRequestStatus(RequestStatus.INITIAL);
+  }
 
+  void _onTextChanged(String text) {
     const duration = Duration(seconds: 1);
 
     if (_debounce?.isActive ?? false) _debounce?.cancel();
 
     _debounce = Timer(duration, () {
-      vm.getMovies(text);
+      Get.find<MovieViewModel>().getMovies(text);
     });
   }
 }

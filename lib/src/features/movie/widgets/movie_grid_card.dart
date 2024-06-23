@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
-
 import '../../../product/resources/app_values.dart';
 import '../../../product/widgets/image_with_shimmer.dart';
 import '../model/movie.dart';
