@@ -46,7 +46,6 @@ class FavoriteMoviesService extends GetxController
     return box.values.toList();
   }
 
-  @override
   Future<void> _toggleFavorite(FavoriteMovie movie) async {
     movie.isFavorite = !movie.isFavorite;
     await movie.save();
