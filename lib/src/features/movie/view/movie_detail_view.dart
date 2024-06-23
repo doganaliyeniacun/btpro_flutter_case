@@ -31,6 +31,21 @@ class MovieDetailView extends StatelessWidget {
                     // go to back button
                     child: _goToBackButton(),
                   ),
+                  Positioned(
+                    left: Get.width * 0.8,
+                    top: AppSize.S_20,
+                    // favorite button
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      label: const Icon(
+                        Icons.favorite_border_outlined,
+                        color: Colors.red,
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        shape: const CircleBorder(),
+                      ),
+                    ),
+                  ),
                 ],
               ),
               // body

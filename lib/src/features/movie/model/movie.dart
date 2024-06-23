@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'movie.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable(createToJson: true)
 class Movie extends Equatable {
   const Movie({
     required this.title,
@@ -20,8 +20,7 @@ class Movie extends Equatable {
     required this.language,
     required this.country,
     required this.awards,
-    required this.poster,
-    required this.ratings,
+    required this.poster,    
     required this.metascore,
     required this.imdbRating,
     required this.imdbVotes,
@@ -77,9 +76,6 @@ class Movie extends Equatable {
   @JsonKey(name: 'Poster')
   final String? poster;
 
-  @JsonKey(name: 'Ratings')
-  final List<Rating>? ratings;
-
   @JsonKey(name: 'Metascore')
   final String? metascore;
   final String? imdbRating;
@@ -110,6 +106,7 @@ class Movie extends Equatable {
   final String? error;
 
   factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
+  Map<String, dynamic> toJson() => _$MovieToJson(this);
 
   @override
   List<Object?> get props => [
@@ -127,7 +124,6 @@ class Movie extends Equatable {
         country,
         awards,
         poster,
-        ratings,
         metascore,
         imdbRating,
         imdbVotes,
@@ -142,24 +138,4 @@ class Movie extends Equatable {
       ];
 }
 
-@JsonSerializable(createToJson: false)
-class Rating extends Equatable {
-  const Rating({
-    required this.source,
-    required this.value,
-  });
 
-  @JsonKey(name: 'Source')
-  final String? source;
-
-  @JsonKey(name: 'Value')
-  final String? value;
-
-  factory Rating.fromJson(Map<String, dynamic> json) => _$RatingFromJson(json);
-
-  @override
-  List<Object?> get props => [
-        source,
-        value,
-      ];
-}

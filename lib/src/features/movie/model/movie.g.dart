@@ -21,9 +21,6 @@ Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
       country: json['Country'] as String?,
       awards: json['Awards'] as String?,
       poster: json['Poster'] as String?,
-      ratings: (json['Ratings'] as List<dynamic>?)
-          ?.map((e) => Rating.fromJson(e as Map<String, dynamic>))
-          .toList(),
       metascore: json['Metascore'] as String?,
       imdbRating: json['imdbRating'] as String?,
       imdbVotes: json['imdbVotes'] as String?,
@@ -37,7 +34,30 @@ Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
       error: json['Error'] as String?,
     );
 
-Rating _$RatingFromJson(Map<String, dynamic> json) => Rating(
-      source: json['Source'] as String?,
-      value: json['Value'] as String?,
-    );
+Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
+      'Title': instance.title,
+      'Year': instance.year,
+      'Rated': instance.rated,
+      'Released': instance.released,
+      'Runtime': instance.runtime,
+      'Genre': instance.genre,
+      'Director': instance.director,
+      'Writer': instance.writer,
+      'Actors': instance.actors,
+      'Plot': instance.plot,
+      'Language': instance.language,
+      'Country': instance.country,
+      'Awards': instance.awards,
+      'Poster': instance.poster,
+      'Metascore': instance.metascore,
+      'imdbRating': instance.imdbRating,
+      'imdbVotes': instance.imdbVotes,
+      'imdbID': instance.imdbId,
+      'Type': instance.type,
+      'DVD': instance.dvd,
+      'BoxOffice': instance.boxOffice,
+      'Production': instance.production,
+      'Website': instance.website,
+      'Response': instance.response,
+      'Error': instance.error,
+    };
