@@ -20,7 +20,6 @@ class MovieViewModel extends GetxController implements IMovieViewModel {
   @override
   void onInit() {
     super.onInit();
-
     _dio = Dio(
       BaseOptions(
         baseUrl: AppHttp.BASE_URL,
