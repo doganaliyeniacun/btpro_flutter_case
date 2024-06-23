@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:btpro_flutter_case/src/features/movie/view_model/movie_detail_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 import '../../../product/resources/app_values.dart';
@@ -20,46 +21,52 @@ class MovieDetailView extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              //header
+              // header
               Stack(
                 children: [
-                  _moviePoster(vm.movie!.poster.toString()),
+                  // poster
+                  _poster(vm.movie!.poster.toString()),
                   Positioned(
                     top: AppSize.S_20,
+                    // go to back button
                     child: _goToBackButton(),
                   ),
                 ],
               ),
-              // details
+              // body
               Padding(
                 padding: const EdgeInsets.all(AppSize.S_14),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              vm.movie!.title.toString(),
-                              style: const TextStyle(
-                                fontSize: AppSize.S_20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                            // movie title
+                            _title(vm.movie!.title.toString(), AppSize.S_20),
                             const SizedBox(height: AppSize.S_10),
-                            Text(
-                              vm.movie!.released.toString(),
-                              style: TextStyle(
-                                  fontSize: AppSize.S_14,
-                                  color: Colors.grey.shade600),
-                            ),
+                            // release information
+                            _releasedInfo(vm.movie!.released.toString()),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            // rating bar
+                            _customRatingBarIndicator(
+                                vm.movie!.imdbRating.toString()),
+                            const SizedBox(height: AppSize.S_10),
+                            // votes
+                            _votes(vm.movie!.imdbVotes.toString()),
                           ],
                         ),
                       ],
                     ),
                     const SizedBox(height: AppSize.S_10),
-                    _plot(vm.movie!.plot.toString(),),
+                    // plot
+                    _customAutoSizeText(vm.movie!.plot.toString()),
                     const SizedBox(height: AppSize.S_10),
                   ],
                 ),
@@ -71,7 +78,47 @@ class MovieDetailView extends StatelessWidget {
     );
   }
 
-  AutoSizeText _plot(String plotText) {
+  Text _releasedInfo(String releasedText) {
+    return Text(
+      releasedText,
+      style: TextStyle(
+        fontSize: AppSize.S_14,
+        color: Colors.grey.shade600,
+      ),
+    );
+  }
+
+  Text _title(String title, double fontSize) {
+    return Text(
+      title,
+      style: TextStyle(
+        fontSize: fontSize,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Text _votes(String votesText) {
+    return Text(
+      votesText,
+      style: TextStyle(fontSize: AppSize.S_14, color: Colors.grey.shade600),
+    );
+  }
+
+  RatingBarIndicator _customRatingBarIndicator(String ratingValue) {
+    return RatingBarIndicator(
+      rating: double.parse(ratingValue) / 2,
+      itemBuilder: (context, index) => const Icon(
+        Icons.star,
+        color: Colors.amber,
+      ),
+      itemCount: 5,
+      itemSize: AppSize.S_20,
+      direction: Axis.horizontal,
+    );
+  }
+
+  AutoSizeText _customAutoSizeText(String plotText) {
     return AutoSizeText(
       plotText,
       style: const TextStyle(
@@ -91,12 +138,12 @@ class MovieDetailView extends StatelessWidget {
       label: const Icon(
         Icons.arrow_back_ios_new_outlined,
         color: Colors.white,
-        size: 34,
+        size: AppSize.S_34,
       ),
     );
   }
 
-  ImageWithShimmer _moviePoster(String imageUrl) {
+  ImageWithShimmer _poster(String imageUrl) {
     return ImageWithShimmer(
       imageUrl: imageUrl,
       width: double.infinity,
