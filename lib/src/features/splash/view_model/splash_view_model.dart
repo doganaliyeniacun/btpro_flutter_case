@@ -21,7 +21,7 @@ class SplashViewModel extends GetxController {
       NetworkService(messageText: AppStrings.CHECK_YOUR_CONNECTION),
       permanent: true,
     );
-    networkService.isConnected = _goToTheNextPage;
+    networkService.onConnected = _goToTheNextPage;
   }
 
   void _goToTheNextPage({int delaySec = 3}) {
