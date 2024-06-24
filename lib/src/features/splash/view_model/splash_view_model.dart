@@ -1,9 +1,10 @@
 import 'package:btpro_flutter_case/src/product/firebase/remote_config/remote_config_keys.dart';
 import 'package:btpro_flutter_case/src/product/firebase/remote_config/service/remote_config_service.dart';
+import 'package:btpro_flutter_case/src/product/resources/app_strings.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
-import '../../../product/network/network_controller.dart';
+import '../../../product/network/service/network_service.dart';
 import '../../../product/resources/app_routes.dart';
 
 class SplashViewModel extends GetxController {
@@ -22,11 +23,11 @@ class SplashViewModel extends GetxController {
   void onReady() {
     super.onReady();
 
-    final networkController = Get.put<NetworkController>(
-      NetworkController(),
+    final networkService = Get.put<NetworkService>(
+      NetworkService(messageText: AppStrings.CHECK_YOUR_CONNECTION),
       permanent: true,
     );
-    networkController.isConnected = _goToTheMoviePage;
+    networkService.isConnected = _goToTheMoviePage;
   }
 
   void _goToTheMoviePage({int delaySec = 3}) {

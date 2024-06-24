@@ -3,13 +3,13 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class NetworkController extends GetxController {
+class NetworkService extends GetxController {
   final Connectivity _connectivity = Connectivity();
   late final String? messageText;
   VoidCallback? isConnected;
 
-  NetworkController({
-    this.messageText = 'Please check your internet connection!',
+  NetworkService({
+    this.messageText,
   });
 
   @override
