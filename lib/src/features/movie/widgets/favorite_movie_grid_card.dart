@@ -10,9 +10,9 @@ import '../../../product/widgets/image_with_shimmer.dart';
 
 class FavoriteMovieGridCard extends StatelessWidget {
   const FavoriteMovieGridCard({
-    Key? key,
+    super.key,
     required this.movie,
-  }) : super(key: key);
+  });
 
   final FavoriteMovie movie;
 

@@ -7,9 +7,9 @@ import 'favorite_movie_grid_card.dart';
 
 class FavoriteMovieGridView extends StatelessWidget {
   const FavoriteMovieGridView({
-    Key? key,
+    super.key,
     required this.movies,
-  }) : super(key: key);
+  });
 
   final List<FavoriteMovie> movies;
 

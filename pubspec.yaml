@@ -9,27 +9,42 @@ environment:
   sdk: ">=3.4.3 <4.0.0"
 
 dependencies:
+  flutter:
+    sdk: flutter
+  # Text
   auto_size_text: ^3.0.0
+
+  # Image
   cached_network_image: ^3.3.1
+
+  # Network
   connectivity_plus: ^6.0.3
+
+  # UI
   convex_bottom_bar: ^3.2.0
   cupertino_icons: ^1.0.6
+  flutter_native_splash: ^2.4.0
+  flutter_rating_bar: ^4.0.1
+  shimmer: ^3.0.0
+
+  # HTTP
   dio: ^5.4.3+1
   equatable: ^2.0.5
+  json_annotation: ^4.9.0
+
+  #Firebase
   firebase_analytics: ^11.0.1
   firebase_core: ^3.1.0
   firebase_messaging: ^15.0.1
   firebase_remote_config: ^5.0.1
-  flutter:
-    sdk: flutter
+
+  # Storage
   flutter_dotenv: ^5.1.0
-  flutter_native_splash: ^2.4.0
-  flutter_rating_bar: ^4.0.1
-  get: ^4.6.6
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  json_annotation: ^4.9.0
-  shimmer: ^3.0.0
+
+  # State Management
+  get: ^4.6.6
 
 dev_dependencies:
   build_runner: ^2.4.11
@@ -42,6 +57,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  # Assets
   assets:
     - assets/
     - .env
