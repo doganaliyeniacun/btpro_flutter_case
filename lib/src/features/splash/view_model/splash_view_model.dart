@@ -17,20 +17,14 @@ class SplashViewModel extends GetxController {
     FlutterNativeSplash.remove();
     splashText.value =
         Get.find<RemoteConfigService>().getString(RemoteConfigKeys.SPLASH_TEXT);
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-
     final networkService = Get.put<NetworkService>(
       NetworkService(messageText: AppStrings.CHECK_YOUR_CONNECTION),
       permanent: true,
     );
-    networkService.isConnected = _goToTheMoviePage;
+    networkService.isConnected = _goToTheNextPage;
   }
 
-  void _goToTheMoviePage({int delaySec = 3}) {
+  void _goToTheNextPage({int delaySec = 3}) {
     bool isSplashPage = Get.currentRoute.contains(AppRoutes.SPLASH);
 
     if (isSplashPage) {
