@@ -24,6 +24,8 @@ https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/ec51666f-
 ![firebase_messaging](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/2c0373a8-ca06-4a13-90c3-11e2155505b7)
 ## Analytics
 ![firebase_debug_view](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/40eccf19-2ec9-486d-82a1-4e1866a43502)
+## Remote Config
+![splash_view](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/43ab9e9a-928e-4061-adbf-fc44a382a772)
 
 
  
