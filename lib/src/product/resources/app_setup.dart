@@ -9,6 +9,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
 import '../../../firebase_options.dart';
+import '../firebase/notifications/service/firebase_notifications_service.dart';
 import '../firebase/remote_config/service/remote_config_service.dart';
 
 class AppSetup {
@@ -24,6 +25,7 @@ class AppSetup {
       options: DefaultFirebaseOptions.currentPlatform,
     );
     await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
+    await FirebaseNotificationsService().initNotifications();
 
     // Dependency
     Get.put(RemoteConfigService(), permanent: true);
