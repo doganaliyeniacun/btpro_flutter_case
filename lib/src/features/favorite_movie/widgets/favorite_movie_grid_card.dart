@@ -1,23 +1,26 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:btpro_flutter_case/src/features/favorite_movie/view_model/favorite_movie_view_model.dart';
+import 'package:flutter/material.dart';
 import 'package:btpro_flutter_case/src/features/favorite_movie/model/favorite_movie.dart';
 import 'package:btpro_flutter_case/src/product/widgets/favorite_button.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../product/resources/app_routes.dart';
 import '../../../product/resources/app_values.dart';
 import '../../../product/widgets/image_with_shimmer.dart';
 
 class FavoriteMovieGridCard extends StatelessWidget {
   const FavoriteMovieGridCard({
-    super.key,
+    Key? key,
     required this.movie,
-  });
+  }) : super(key: key);
 
   final FavoriteMovie movie;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final vm = Get.find<FavoriteMovieViewModel>();
+
     return Stack(
       children: [
         Column(
@@ -46,7 +49,8 @@ class FavoriteMovieGridCard extends StatelessWidget {
         Positioned(
           left: AppSize.S_100,
           child: FavoriteButton(
-            onFavorite: () {},
+            isFavorite: movie.isFavorite,
+            onFavorite: () => vm.unfavoriteMovie(movie.imdbId),
           ),
         ),
       ],

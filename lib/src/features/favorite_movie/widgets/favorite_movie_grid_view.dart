@@ -1,15 +1,15 @@
-import 'package:btpro_flutter_case/src/features/favorite_movie/model/favorite_movie.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
+import 'package:btpro_flutter_case/src/features/favorite_movie/model/favorite_movie.dart';
 import '../../../product/resources/app_values.dart';
 import 'favorite_movie_grid_card.dart';
 
-
-
-class FavoriteMoviesGridView extends StatelessWidget {
-  const FavoriteMoviesGridView({
-    super.key,
+class FavoriteMovieGridView extends StatelessWidget {
+  const FavoriteMovieGridView({
+    Key? key,
     required this.movies,
-  });
+  }) : super(key: key);
 
   final List<FavoriteMovie> movies;
 
@@ -23,7 +23,8 @@ class FavoriteMoviesGridView extends StatelessWidget {
         gridDelegate: _gridDelegate(),
         itemBuilder: (context, index) {
           final movie = movies[index];
-          return FavoriteMovieGridCard(movie: movie);
+          return FavoriteMovieGridCard(
+              movie: movie);
         },
       ),
     );

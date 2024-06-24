@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class FavoriteButton extends StatelessWidget {
   const FavoriteButton({
     super.key,
-    this.isFavorite = false,
-    this.onFavorite,
+    required this.isFavorite,
+    required this.onFavorite,
   });
 
   final bool isFavorite;

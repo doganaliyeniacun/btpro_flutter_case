@@ -8,7 +8,7 @@ import '../model/movie.dart';
 
 class MovieDetailsViewModel extends GetxController {
   late final IMovieService _service;
-  late final IFavoritesMovieService favoriteMoviesService;
+  late final IFavoriteMovieService favoriteMoviesService;
   late final String? _imdbId;
   late final Movie movie;
   late final AnalyticsService _analyticsService;
@@ -17,7 +17,7 @@ class MovieDetailsViewModel extends GetxController {
   @override
   void onInit() async {
     _service = Get.find<IMovieService>();
-    favoriteMoviesService = Get.find<FavoriteMoviesService>();
+    favoriteMoviesService = Get.find<FavoriteMovieService>();
     _analyticsService = Get.find<AnalyticsService>();
 
     _imdbId = Get.arguments;

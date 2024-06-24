@@ -3,57 +3,58 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../model/favorite_movie.dart';
 
-abstract class IFavoritesMovieService {
-  Future<void> add(FavoriteMovie movie);
-  Future<FavoriteMovie?> get(String imdbId);
-  Future<List<FavoriteMovie>> getAll();
+abstract class IFavoriteMovieService {
+  Future<void> addFavoriteMovie(FavoriteMovie movie);
+  Future<FavoriteMovie?> getMovie(String imdbId);
+  Future<List<FavoriteMovie>?> getAllMovies();
+  Future<List<FavoriteMovie>?> getAllFavoriteMovies();
   Future<bool> getFavoriteState(String imdbId);
   Future<bool> changeFavoriteState(FavoriteMovie favoriteMovie);
 }
 
-class FavoriteMoviesService extends GetxController
-    implements IFavoritesMovieService {
-  late final Box<FavoriteMovie> box;
+class FavoriteMovieService extends GetxController
+    implements IFavoriteMovieService {
+  late final Box<FavoriteMovie> _box;
 
   @override
   void onInit() async {
     await Hive.initFlutter();
     Hive.registerAdapter(FavoriteMovieAdapter());
     Hive.openBox<FavoriteMovie>(AppStrings.HIVE_FAVORITE_BOX_NAME);
-    box = await Hive.openBox<FavoriteMovie>(AppStrings.HIVE_FAVORITE_BOX_NAME);
+    _box = await Hive.openBox<FavoriteMovie>(AppStrings.HIVE_FAVORITE_BOX_NAME);
     super.onInit();
   }
 
   @override
-  Future<void> add(FavoriteMovie movie) async {
-    await box.add(movie);
+  Future<void> addFavoriteMovie(FavoriteMovie movie) async {
+    await _box.add(movie);
   }
 
   @override
-  Future<FavoriteMovie?> get(String imdbId) async {
-    final list = await getAll();
-    if (list.isEmpty) {
-      return null;
-    }
-    final FavoriteMovie favoriteMovie = list.firstWhere(
-      (e) => e.imdbId == imdbId,
-    );
+  Future<FavoriteMovie?> getMovie(String imdbId) async {
+    final List<FavoriteMovie>? list = await getAllMovies();
+
+    final FavoriteMovie? favoriteMovie =
+        list?.firstWhereOrNull((e) => e.imdbId == imdbId);
+
     return favoriteMovie;
   }
 
   @override
-  Future<List<FavoriteMovie>> getAll() async {
-    return box.values.toList();
+  Future<List<FavoriteMovie>?> getAllMovies() async {
+    return _box.values.toList();
   }
 
-  Future<void> _toggleFavorite(FavoriteMovie movie) async {
-    movie.isFavorite = !movie.isFavorite;
-    await movie.save();
+  @override
+  Future<List<FavoriteMovie>?> getAllFavoriteMovies() async {
+    final list = await getAllMovies();
+    final favoriteList = list?.where((e) => e.isFavorite == true).toList();
+    return favoriteList;
   }
 
   @override
   Future<bool> getFavoriteState(String imdbId) async {
-    final FavoriteMovie? favoriteMovie = await get(imdbId);
+    final FavoriteMovie? favoriteMovie = await getMovie(imdbId);
     if (favoriteMovie == null) {
       return false;
     } else {
@@ -62,17 +63,17 @@ class FavoriteMoviesService extends GetxController
   }
 
   @override
-  Future<bool> changeFavoriteState(
-    FavoriteMovie favoriteMovie,
-  ) async {
-    final FavoriteMovie? checkMovie = await get(favoriteMovie.imdbId);
+  Future<bool> changeFavoriteState(FavoriteMovie favoriteMovie) async {
+    final FavoriteMovie? checkMovie =
+        await getMovie(favoriteMovie.imdbId);
 
     if (checkMovie == null) {
-      await add(favoriteMovie);
-      return true;
+      await addFavoriteMovie(favoriteMovie);
     } else {
-      await _toggleFavorite(checkMovie);
-      return checkMovie.isFavorite;
+      favoriteMovie.isFavorite = !favoriteMovie.isFavorite;
+      await favoriteMovie.save();
     }
+
+    return favoriteMovie.isFavorite;
   }
 }

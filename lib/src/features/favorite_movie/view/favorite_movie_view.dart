@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../product/resources/app_values.dart';
-import '../widgets/favorite_movies_grid_view.dart';
+import '../widgets/favorite_movie_grid_view.dart';
 
-class FavoriteMoviesView extends StatelessWidget {
-  const FavoriteMoviesView({super.key});
+class FavoriteMovieView extends StatelessWidget {
+  const FavoriteMovieView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class FavoriteMoviesView extends StatelessWidget {
           ),
           child: Column(
             children: [
-              FavoriteMoviesGridView(movies: vm.favoritesList),
+              Obx(() => FavoriteMovieGridView(movies: vm.favoritesList.value)),
             ],
           ),
         ),

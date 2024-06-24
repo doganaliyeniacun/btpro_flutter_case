@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/adapters.dart';
 
 import '../../../firebase_options.dart';
 import '../firebase/remote_config/service/remote_config_service.dart';
@@ -30,6 +28,6 @@ class AppSetup {
     // Dependency
     Get.put(RemoteConfigService(), permanent: true);
     Get.put(AnalyticsService(), permanent: true);
-    Get.put(FavoriteMoviesService(), permanent: true);
+    Get.put(FavoriteMovieService(), permanent: true);
   }
 }
