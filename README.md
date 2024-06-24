@@ -19,8 +19,11 @@ https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/ec51666f-
 ![favorite_view](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/c056a92a-a7a6-4d55-a523-922d3b5da088)
 
 # 5 - Firebase
+## Notifications
 ![notification](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/5cc268fd-158c-41f8-bcf8-804200120fc7)
-![firebase_debug_view](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/40eccf19-2ec9-486d-82a1-4e1866a43502)
 ![firebase_messaging](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/2c0373a8-ca06-4a13-90c3-11e2155505b7)
+## Analytics
+![firebase_debug_view](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/40eccf19-2ec9-486d-82a1-4e1866a43502)
+
 
  
