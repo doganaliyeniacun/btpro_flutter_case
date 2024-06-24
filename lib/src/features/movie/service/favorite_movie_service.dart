@@ -84,7 +84,7 @@ class FavoriteMovieService extends GetxController
   }
 
   Future<void> _setFavoriteList() async {
-    final _favoriteList = await getAllFavoriteMovies();
-    favoriteMoviesList?.assignAll(_favoriteList ?? []);
+    final favoriteList = await getAllFavoriteMovies();
+    favoriteMoviesList?.assignAll(favoriteList ?? []);
   }
 }

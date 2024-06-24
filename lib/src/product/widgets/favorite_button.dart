@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FavoriteButton extends StatelessWidget {
   const FavoriteButton({
@@ -13,16 +14,16 @@ class FavoriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(      
+    final theme = context.theme;
+    return ElevatedButton.icon(
       onPressed: onFavorite,
       label: Icon(
-        isFavorite
-            ? Icons.favorite_outlined
-            : Icons.favorite_border_outlined,
-        color: Colors.red,
+        isFavorite ? Icons.favorite_outlined : Icons.favorite_border_outlined,
+        color: theme.colorScheme.primary,
       ),
       style: ElevatedButton.styleFrom(
         shape: const CircleBorder(),
+        backgroundColor: theme.colorScheme.secondary,
       ),
     );
   }
