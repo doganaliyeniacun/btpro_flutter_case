@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import '../model/favorite_movie.dart';
 
 abstract class IFavoriteMovieService {
+  late final RxList<FavoriteMovie>? favoriteMoviesList;
   Future<void> addFavoriteMovie(FavoriteMovie movie);
   Future<FavoriteMovie?> getMovie(String imdbId);
   Future<List<FavoriteMovie>?> getAllMovies();
@@ -17,17 +18,16 @@ class FavoriteMovieService extends GetxController
   late final Box<FavoriteMovie> _box;
 
   @override
+  RxList<FavoriteMovie>? favoriteMoviesList = <FavoriteMovie>[].obs;
+
+  @override
   void onInit() async {
     await Hive.initFlutter();
     Hive.registerAdapter(FavoriteMovieAdapter());
     Hive.openBox<FavoriteMovie>(AppStrings.HIVE_FAVORITE_BOX_NAME);
     _box = await Hive.openBox<FavoriteMovie>(AppStrings.HIVE_FAVORITE_BOX_NAME);
+    await _setFavoriteList();
     super.onInit();
-  }
-
-  @override
-  Future<void> addFavoriteMovie(FavoriteMovie movie) async {
-    await _box.add(movie);
   }
 
   @override
@@ -63,17 +63,28 @@ class FavoriteMovieService extends GetxController
   }
 
   @override
+  Future<void> addFavoriteMovie(FavoriteMovie movie) async {
+    await _box.add(movie);
+  }
+
+  @override
   Future<bool> changeFavoriteState(FavoriteMovie favoriteMovie) async {
-    final FavoriteMovie? checkMovie =
-        await getMovie(favoriteMovie.imdbId);
+    final FavoriteMovie? checkMovie = await getMovie(favoriteMovie.imdbId);
 
     if (checkMovie == null) {
       await addFavoriteMovie(favoriteMovie);
+      await _setFavoriteList();
+      return favoriteMovie.isFavorite;
     } else {
-      favoriteMovie.isFavorite = !favoriteMovie.isFavorite;
-      await favoriteMovie.save();
+      checkMovie.isFavorite = !checkMovie.isFavorite;
+      await checkMovie.save();
+      await _setFavoriteList();
+      return checkMovie.isFavorite;
     }
+  }
 
-    return favoriteMovie.isFavorite;
+  Future<void> _setFavoriteList() async {
+    final _favoriteList = await getAllFavoriteMovies();
+    favoriteMoviesList?.assignAll(_favoriteList ?? []);
   }
 }

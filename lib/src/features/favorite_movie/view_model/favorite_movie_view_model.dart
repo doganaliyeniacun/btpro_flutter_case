@@ -5,26 +5,19 @@ import '../service/favorite_movie_service.dart';
 
 class FavoriteMovieViewModel extends GetxController {
   late final IFavoriteMovieService _service;
-  RxList<FavoriteMovie> favoritesList = <FavoriteMovie>[].obs;
 
   @override
   void onInit() async {
     _service = Get.find<FavoriteMovieService>();
-    await _getFavoriteMoviesList();
     super.onInit();
   }
 
-  Future<void> _getFavoriteMoviesList() async {
-    final list = await _service.getAllFavoriteMovies();
-    favoritesList.assignAll(list ?? []);
-  }
+  RxList<FavoriteMovie>? get favoriteMovies => _service.favoriteMoviesList;
 
   Future<void> unfavoriteMovie(String imdbId) async {
-    final FavoriteMovie? favoriteMovie =
-        await _service.getMovie(imdbId);
+    final FavoriteMovie? favoriteMovie = await _service.getMovie(imdbId);
     if (favoriteMovie != null) {
       await _service.changeFavoriteState(favoriteMovie);
-      await _getFavoriteMoviesList();
     }
   }
 }
