@@ -8,6 +8,7 @@ https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/ec51666f-
 
 # 2 - Home
 ![home_page](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/0999de4f-5708-431e-8fd1-800297b0ee0e)
+![movie_view](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/150f3c69-63c4-4518-804c-3c5910ab5794)
 ![movie_loading](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/002c44e0-edbc-4e29-8477-94fe5727e677)
 ![movie_not_found](https://github.com/doganaliyeniacun/btpro_flutter_case/assets/81778964/6e4528ad-f495-45a5-b940-c2baf8790c91)
 
