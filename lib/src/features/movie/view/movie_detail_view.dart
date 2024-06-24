@@ -113,7 +113,10 @@ class MovieDetailView extends StatelessWidget {
   Text _votes(String votesText) {
     return Text(
       votesText,
-      style: TextStyle(fontSize: AppSize.S_14, color: Colors.grey.shade600),
+      style: TextStyle(
+        fontSize: AppSize.S_14,
+        color: Colors.grey.shade600,
+      ),
     );
   }
 
@@ -147,9 +150,9 @@ class MovieDetailView extends StatelessWidget {
       onPressed: () {
         Get.back();
       },
-      label: const Icon(
+      label: Icon(
         Icons.arrow_back_ios_new_outlined,
-        color: Colors.white,
+        color: Get.theme.colorScheme.secondary,
         size: AppSize.S_34,
       ),
     );
