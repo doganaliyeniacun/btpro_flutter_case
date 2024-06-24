@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../product/resources/app_routes.dart';
+import '../../../product/navigation/app_routes.dart';
 import '../../../product/resources/app_values.dart';
 import '../../../product/widgets/image_with_shimmer.dart';
 import '../model/movie.dart';

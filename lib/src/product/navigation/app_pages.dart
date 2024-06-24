@@ -2,7 +2,7 @@
 
 import 'package:btpro_flutter_case/src/features/home/view/home_view.dart';
 import 'package:btpro_flutter_case/src/features/movie/view/movie_view.dart';
-import 'package:btpro_flutter_case/src/product/resources/app_routes.dart';
+import 'package:btpro_flutter_case/src/product/navigation/app_routes.dart';
 import 'package:get/get.dart';
 
 import '../../features/movie/view/movie_detail_view.dart';

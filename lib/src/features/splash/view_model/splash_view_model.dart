@@ -5,7 +5,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
 import '../../../product/network/service/network_service.dart';
-import '../../../product/resources/app_routes.dart';
+import '../../../product/navigation/app_routes.dart';
 
 class SplashViewModel extends GetxController {
   final RxString splashText = ''.obs;

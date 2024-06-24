@@ -12,7 +12,7 @@ import '../../../firebase_options.dart';
 import '../firebase/notifications/service/firebase_notifications_service.dart';
 import '../firebase/remote_config/service/remote_config_service.dart';
 
-class AppSetup {
+class AppInit {
   static Future<void> init() async {
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);

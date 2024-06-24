@@ -64,6 +64,8 @@ class _SearchFieldState extends State<SearchField> {
   }
 
   void _onTextChanged(String text) {
+    if (_textController.text == '') return;
+
     const duration = Duration(seconds: 1);
 
     if (_debounce?.isActive ?? false) _debounce?.cancel();
