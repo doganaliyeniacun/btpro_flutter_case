@@ -1,6 +1,4 @@
-import 'package:btpro_flutter_case/src/features/favorite_movie/view_model/favorite_movie_view_model.dart';
-import 'package:btpro_flutter_case/src/features/movie/view_model/movie_view_model.dart';
-
+import 'package:btpro_flutter_case/src/features/movie/view_model/favorite_movie_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

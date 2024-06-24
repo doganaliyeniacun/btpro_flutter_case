@@ -1,4 +1,4 @@
-import 'package:btpro_flutter_case/src/features/favorite_movie/model/favorite_movie.dart';
+import 'package:btpro_flutter_case/src/features/movie/model/favorite_movie.dart';
 import 'package:get/get.dart';
 
 import '../service/favorite_movie_service.dart';

@@ -1,5 +1,5 @@
-import 'package:btpro_flutter_case/src/features/favorite_movie/model/favorite_movie.dart';
-import 'package:btpro_flutter_case/src/features/favorite_movie/service/favorite_movie_service.dart';
+import 'package:btpro_flutter_case/src/features/movie/model/favorite_movie.dart';
+import 'package:btpro_flutter_case/src/features/movie/service/favorite_movie_service.dart';
 import 'package:btpro_flutter_case/src/features/movie/service/movie_service.dart';
 import 'package:btpro_flutter_case/src/product/firebase/analytics/service/analytics_service.dart';
 import 'package:get/get.dart';

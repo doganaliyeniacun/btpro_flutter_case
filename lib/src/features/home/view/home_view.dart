@@ -1,4 +1,4 @@
-import 'package:btpro_flutter_case/src/features/favorite_movie/view/favorite_movie_view.dart';
+import 'package:btpro_flutter_case/src/features/movie/view/favorite_movie_view.dart';
 import 'package:btpro_flutter_case/src/features/movie/view/movie_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,8 +18,8 @@ class HomePage extends StatelessWidget {
   ];
 
   final Map<String, IconData> pageItems = {
-    'Home': Icons.home_outlined,
     'Search': Icons.search_outlined,
+    'Favorite': Icons.favorite_outlined,
   };
 
   @override

@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:btpro_flutter_case/src/features/favorite_movie/model/favorite_movie.dart';
+import 'package:btpro_flutter_case/src/features/movie/model/favorite_movie.dart';
 import '../../../product/resources/app_values.dart';
 import 'favorite_movie_grid_card.dart';
 
