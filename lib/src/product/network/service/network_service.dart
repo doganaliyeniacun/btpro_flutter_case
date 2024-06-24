@@ -18,8 +18,6 @@ class NetworkService extends GetxController {
     _connectivity.onConnectivityChanged.listen(_updateStatus);
   }
 
-  // if we are not connected then show snackbar with the message text
-  // and call the [onConnected] function
   void _updateStatus(List<ConnectivityResult> result) {
     if (result.contains(ConnectivityResult.none)) {
       customSnackBar(messageText);
