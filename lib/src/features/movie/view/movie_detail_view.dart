@@ -32,14 +32,16 @@ class MovieDetailView extends StatelessWidget {
                     // go to back button
                     child: _goToBackButton(),
                   ),
-                  Positioned(
-                    left: Get.width * 0.8,
-                    top: AppSize.S_20,
+                  Align(
+                    alignment: Alignment.topRight,
                     // favorite button
-                    child: Obx(
-                      () => FavoriteButton(
-                        isFavorite: vm.isFavorite.value,
-                        onFavorite: vm.changeFavoriteState,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: AppPadding.P_20),
+                      child: Obx(
+                        () => FavoriteButton(
+                          isFavorite: vm.isFavorite.value,
+                          onFavorite: vm.changeFavoriteState,
+                        ),
                       ),
                     ),
                   ),
@@ -146,7 +148,10 @@ class MovieDetailView extends StatelessWidget {
 
   ElevatedButton _goToBackButton() {
     return ElevatedButton.icon(
-      style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.transparent,
+        shape: const CircleBorder(),
+      ),
       onPressed: () {
         Get.back();
       },
