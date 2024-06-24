@@ -14,13 +14,11 @@ dependencies:
   # Text
   auto_size_text: ^3.0.0
 
-  # Image
-  cached_network_image: ^3.3.1
-
   # Network
   connectivity_plus: ^6.0.3
 
   # UI
+  cached_network_image: ^3.3.1
   convex_bottom_bar: ^3.2.0
   cupertino_icons: ^1.0.6
   flutter_native_splash: ^2.4.0
