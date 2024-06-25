@@ -14,17 +14,15 @@ class MoviesGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GridView.builder(
-        padding: const EdgeInsets.symmetric(vertical: AppPadding.P_12),
-        itemCount: movies.length,
-        physics: const BouncingScrollPhysics(),
-        gridDelegate: _gridDelegate(),
-        itemBuilder: (context, index) {
-          final movie = movies[index];
-          return MovieGridCard(movie: movie);
-        },
-      ),
+    return GridView.builder(
+      padding: const EdgeInsets.symmetric(vertical: AppPadding.P_12),
+      itemCount: movies.length,
+      physics: const BouncingScrollPhysics(),
+      gridDelegate: _gridDelegate(),
+      itemBuilder: (context, index) {
+        final movie = movies[index];
+        return MovieGridCard(movie: movie);
+      },
     );
   }
 

@@ -28,19 +28,19 @@ class MovieView extends StatelessWidget {
               const SearchField(),
               Obx(
                 () {
-                  if (vm.requestStatus.value == RequestStatus.LOADING) {
-                    return const Expanded(
-                      child: Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                    );
-                  }
+                  switch (vm.requestStatus.value) {
+                    case RequestStatus.LOADING:
+                      return const Expanded(
+                        child: Center(child: CircularProgressIndicator()),
+                      );
 
-                  if (vm.requestStatus.value == RequestStatus.SUCCESS) {
-                    return MoviesGridView(movies: vm.moviesList);
+                    case RequestStatus.SUCCESS:
+                      return Expanded(
+                        child: MoviesGridView(movies: vm.moviesList),
+                      );
+                    default:
+                      return const SizedBox();
                   }
-
-                  return const SizedBox();
                 },
               )
             ],
