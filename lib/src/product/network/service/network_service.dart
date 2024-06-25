@@ -18,6 +18,14 @@ class NetworkService extends GetxController {
     _connectivity.onConnectivityChanged.listen(_updateStatus);
   }
 
+  /// The `_updateStatus` function checks for network connectivity status and displays a custom snackbar
+  /// message if there is no connection.
+  /// 
+  /// Args:
+  ///   result (List<ConnectivityResult>): The `result` parameter is a list of `ConnectivityResult`
+  /// objects. The function `_updateStatus` checks if the list contains `ConnectivityResult.none` and
+  /// then either displays a custom snackbar with a message or calls a callback function `onConnected`
+  /// and closes any open snackbar if
   void _updateStatus(List<ConnectivityResult> result) {
     if (result.contains(ConnectivityResult.none)) {
       customSnackBar(messageText);
