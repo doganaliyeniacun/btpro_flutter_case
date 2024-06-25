@@ -15,6 +15,8 @@ import '../firebase/remote_config/service/remote_config_service.dart';
 class AppInit {
   static Future<void> init() async {
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+
+    // splash
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
     //dotenv
