@@ -14,7 +14,13 @@ class FavoriteMovieViewModel extends GetxController {
 
   RxList<FavoriteMovie>? get favoriteMovies => _service.favoriteMoviesList;
 
-  Future<void> unfavoriteMovie(String imdbId) async {
+  /// This Dart function unfavorites a movie by retrieving it from a service and changing its favorite
+  /// state if it exists.
+  /// 
+  /// Args:
+  ///   imdbId (String): The `imdbId` parameter is a unique identifier for a movie on the IMDb website.
+  /// It is used to identify a specific movie in the database.
+  Future<void> unFavoriteMovie(String imdbId) async {
     final FavoriteMovie? favoriteMovie = await _service.getMovie(imdbId);
     if (favoriteMovie != null) {
       await _service.changeFavoriteState(favoriteMovie);

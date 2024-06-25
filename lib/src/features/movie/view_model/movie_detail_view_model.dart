@@ -28,6 +28,7 @@ class MovieDetailViewModel extends GetxController {
     super.onInit();
   }
 
+  /// This function analytics logs a movie event with parameters converted to a map of objects.
   Future<void> _logMovie() async {
     Map<String, dynamic> dynamicMap = movie.toJson();
     Map<String, Object> objectMap =
@@ -39,10 +40,24 @@ class MovieDetailViewModel extends GetxController {
     );
   }
 
+  /// The `_findMovieById` function finds a movie in a list by its IMDb ID, while the
+  /// `changeFavoriteState` function updates the favorite state of a movie asynchronously.
+  /// 
+  /// Args:
+  ///   movies (List<Movie>): A list of Movie objects containing information about various movies.
+  ///   imdbId (String): The `imdbId` parameter is a unique identifier for a movie on the IMDb website.
+  /// It is used to uniquely identify a movie in the `Movie` class and is also used when creating a
+  /// `FavoriteMovie` object in the `changeFavoriteState` method.
+  /// 
+  /// Returns:
+  ///   The `changeFavoriteState` method is returning a `Future<bool>` value which represents the result
+  /// of changing the favorite state of a movie.
   Movie _findMovieById(List<Movie> movies, String imdbId) {
     return movies.firstWhere((movie) => movie.imdbId == imdbId);
   }
 
+  /// The function `changeFavoriteState` creates a `FavoriteMovie` object and updates its favorite state
+  /// using a service call.
   void changeFavoriteState() async {
     final favoriteMovie = FavoriteMovie(
       imdbId: _imdbId ?? '',
@@ -50,6 +65,7 @@ class MovieDetailViewModel extends GetxController {
       imageUrl: movie.poster ?? '',
       isFavorite: true,
     );
+    
     final result =
         await favoriteMoviesService.changeFavoriteState(favoriteMovie);
 

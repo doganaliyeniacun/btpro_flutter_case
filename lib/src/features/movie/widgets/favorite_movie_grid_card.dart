@@ -50,7 +50,7 @@ class FavoriteMovieGridCard extends StatelessWidget {
           left: AppSize.S_100,
           child: FavoriteButton(
             isFavorite: movie.isFavorite,
-            onFavorite: () => vm.unfavoriteMovie(movie.imdbId),
+            onFavorite: () => vm.unFavoriteMovie(movie.imdbId),
           ),
         ),
       ],
