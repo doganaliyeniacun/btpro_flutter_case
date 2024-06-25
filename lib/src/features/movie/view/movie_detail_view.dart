@@ -49,7 +49,7 @@ class MovieDetailView extends StatelessWidget {
               ),
               // body
               Padding(
-                padding: const EdgeInsets.all(AppSize.S_14),
+                padding: const EdgeInsets.all(AppPadding.P_14),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -152,9 +152,7 @@ class MovieDetailView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         shape: const CircleBorder(),
       ),
-      onPressed: () {
-        Get.back();
-      },
+      onPressed: () => Get.back(),
       label: Icon(
         Icons.arrow_back_ios_new_outlined,
         color: Get.theme.colorScheme.secondary,
