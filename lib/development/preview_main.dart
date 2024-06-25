@@ -17,6 +17,9 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]).then((_) {
     runApp(
+      /// The `DevicePreview` widget in the provided code snippet is used for previewing how the app
+      /// will look on different devices during development. Here's what the specific configuration in
+      /// the code does:
       DevicePreview(
         enabled: !kReleaseMode,
         builder: (context) => const _MyApp(),
