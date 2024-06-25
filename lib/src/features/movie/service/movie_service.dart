@@ -16,10 +16,20 @@ class MovieService extends GetxController implements IMovieService {
 
   MovieService(this._dio);
 
+  /// This function fetches movies based on a given movie name using Dio library in Dart and updates the
+  /// movies list accordingly.
+  /// 
+  /// Args:
+  ///   movieName (String): The `movieName` parameter in the `fetchMovies` method is a string that
+  /// represents the name of the movie that you want to fetch information for. This parameter is used to
+  /// construct the query parameters for the API request to fetch movie data.
   @override
   Future<void> fetchMovies(String movieName) async {
+    const path = '';
+    Map<String, dynamic> queryParameters = {'t': movieName};
+
     try {
-      final response = await _dio.get('/', queryParameters: {'t': movieName});
+      final response = await _dio.get(path, queryParameters: queryParameters);
 
       moviesList.value = [];
 
