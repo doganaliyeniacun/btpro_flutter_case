@@ -24,6 +24,14 @@ class SplashViewModel extends GetxController {
     networkService.onConnected = _goToTheNextPage;
   }
 
+  /// This function checks if the current route is a splash page and then navigates to the home
+  /// page after a specified delay.
+  /// 
+  /// Args:
+  ///   delaySec (int): The `delaySec` parameter is an optional parameter of type `int` with a default
+  /// value of `3`. It is used to specify the number of seconds to delay before navigating to the next
+  /// page. If no value is provided when calling the function `_goToTheNextPage`, it will default.
+  /// Defaults to 3
   void _goToTheNextPage({int delaySec = 3}) {
     bool isSplashPage = Get.currentRoute.contains(AppRoutes.SPLASH);
 
