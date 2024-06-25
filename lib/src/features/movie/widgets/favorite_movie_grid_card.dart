@@ -18,7 +18,6 @@ class FavoriteMovieGridCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     final vm = Get.find<FavoriteMovieViewModel>();
 
     return Stack(
@@ -41,7 +40,7 @@ class FavoriteMovieGridCard extends StatelessWidget {
                 movie.title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: textTheme.bodyLarge,
+                style: context.textTheme.bodyLarge,
               ),
             ),
           ],

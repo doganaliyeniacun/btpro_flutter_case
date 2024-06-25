@@ -26,14 +26,12 @@ class _SearchFieldState extends State<SearchField> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final textTheme = Get.textTheme;
-
+  Widget build(BuildContext context) {  
     return Form(
       child: TextFormField(
         controller: _textController,
         cursorWidth: AppSize.S_1,
-        style: textTheme.bodyLarge,
+        style: context.textTheme.bodyLarge,
         onChanged: _onTextChanged,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
@@ -52,7 +50,7 @@ class _SearchFieldState extends State<SearchField> {
             ),
           ),
           hintText: AppStrings.SEARCH_HINT,
-          hintStyle: textTheme.bodyLarge,
+          hintStyle: context.textTheme.bodyLarge,
         ),
       ),
     );

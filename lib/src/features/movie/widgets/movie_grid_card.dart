@@ -14,8 +14,7 @@ class MovieGridCard extends StatelessWidget {
   final Movie movie;
 
   @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+  Widget build(BuildContext context) {    
     return Column(
       children: [
         GestureDetector(
@@ -41,7 +40,7 @@ class MovieGridCard extends StatelessWidget {
             movie.title ?? '',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: textTheme.bodyLarge,
+            style: context.textTheme.bodyLarge,
           ),
         ),
       ],
