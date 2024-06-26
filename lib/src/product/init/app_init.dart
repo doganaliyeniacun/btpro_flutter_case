@@ -1,6 +1,7 @@
 import 'package:btpro_flutter_case/src/features/movie/service/favorite_movie_service.dart';
 import 'package:btpro_flutter_case/src/product/firebase/analytics/service/analytics_service.dart';
 import 'package:btpro_flutter_case/src/product/resources/app_strings.dart';
+import 'package:btpro_flutter_case/src/product/util/logger/service/logger_service.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class AppInit {
     await FirebaseNotificationsService().initNotifications();
 
     // Dependency
+    Get.put(LoggerService(), permanent: true);
     Get.put(RemoteConfigService(), permanent: true);
     Get.put(AnalyticsService(), permanent: true);
     Get.put(FavoriteMovieService(), permanent: true);

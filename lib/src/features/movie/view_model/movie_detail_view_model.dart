@@ -1,10 +1,11 @@
 import 'package:btpro_flutter_case/src/features/movie/model/favorite_movie.dart';
 import 'package:btpro_flutter_case/src/features/movie/service/favorite_movie_service.dart';
-import 'package:btpro_flutter_case/src/features/movie/service/movie_service.dart';
 import 'package:btpro_flutter_case/src/product/firebase/analytics/service/analytics_service.dart';
 import 'package:get/get.dart';
 
 import '../model/movie.dart';
+import '../service/interface/i_favorite_movie_service.dart';
+import '../service/interface/i_movie_service.dart';
 
 class MovieDetailViewModel extends GetxController {
   late final IMovieService _service;

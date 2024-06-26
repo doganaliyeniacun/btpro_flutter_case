@@ -4,6 +4,8 @@ import 'package:btpro_flutter_case/src/product/resources/app_http.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
+import '../service/interface/i_movie_service.dart';
+
 enum RequestStatus { INITIAL, LOADING, SUCCESS, NOT_FOUND, ERROR }
 
 abstract class IMovieViewModel {

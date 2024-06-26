@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:btpro_flutter_case/src/features/movie/service/interface/i_movie_service.dart';
 import 'package:btpro_flutter_case/src/features/movie/service/movie_service.dart';
 import 'package:btpro_flutter_case/src/product/resources/app_http.dart';
 import 'package:dio/dio.dart';

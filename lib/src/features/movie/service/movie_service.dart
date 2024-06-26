@@ -2,11 +2,7 @@ import 'package:get/get.dart';
 import 'package:dio/dio.dart';
 
 import '../model/movie.dart';
-
-abstract class IMovieService {
-  late final RxList<Movie> moviesList;
-  Future<void> fetchMovies(String movieName);
-}
+import 'interface/i_movie_service.dart';
 
 class MovieService extends GetxController implements IMovieService {
   final Dio _dio;
@@ -18,7 +14,7 @@ class MovieService extends GetxController implements IMovieService {
 
   /// This function fetches movies based on a given movie name using Dio library in Dart and updates the
   /// movies list accordingly.
-  /// 
+  ///
   /// Args:
   ///   movieName (String): The `movieName` parameter in the `fetchMovies` method is a string that
   /// represents the name of the movie that you want to fetch information for. This parameter is used to

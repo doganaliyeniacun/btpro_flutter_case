@@ -1,17 +1,20 @@
+import 'package:btpro_flutter_case/src/product/util/logger/service/interface/i_logger_service.dart';
+import 'package:btpro_flutter_case/src/product/util/logger/service/logger_service.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:get/get.dart';
 
-abstract class IRemoteConfigService {
-  String getString(String configName);
-}
+import 'interface/i_remote_config_service.dart';
 
 class RemoteConfigService extends GetxController
     implements IRemoteConfigService {
-  final FirebaseRemoteConfig _remoteConfig = FirebaseRemoteConfig.instance;
+  late final FirebaseRemoteConfig _remoteConfig;
+  late final ILoggerService _logger;
 
   @override
   void onInit() async {
     super.onInit();
+    _remoteConfig = FirebaseRemoteConfig.instance;
+    _logger = Get.find<LoggerService>();
     await _init();
   }
 
@@ -20,7 +23,7 @@ class RemoteConfigService extends GetxController
       await _setConfigSettings();
       await _fetchAndActivate();
     } catch (e) {
-      print(e);
+      _logger.errorLog(e.toString());
     }
   }
 
@@ -41,7 +44,7 @@ class RemoteConfigService extends GetxController
 
   /// This function overrides the getString method to return a string value from a remote configuration
   /// based on the provided configName.
-  /// 
+  ///
   /// Args:
   ///   configName (String): The `configName` parameter is a string that represents the name of a
   /// configuration setting or value that you want to retrieve from a remote configuration source. In

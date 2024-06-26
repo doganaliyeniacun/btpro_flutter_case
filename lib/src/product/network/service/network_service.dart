@@ -15,6 +15,8 @@ class NetworkService extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    /// The line `_connectivity.onConnectivityChanged.listen(_updateStatus);` in the `NetworkService`
+    /// class is setting up a listener for changes in network connectivity status.
     _connectivity.onConnectivityChanged.listen(_updateStatus);
   }
 
