@@ -9,14 +9,14 @@ class LoggerService extends GetxController implements ILoggerService {
   @override
   void onInit() {
     final logPrinter = PrettyPrinter(
-          methodCount: 2,
-          errorMethodCount: 8,
-          lineLength: 120,
-          colors: true,
-          printEmojis: true,
-          printTime: false,
-        ),
-        _logger = Logger(printer: logPrinter);
+      methodCount: 2,
+      errorMethodCount: 8,
+      lineLength: 120,
+      colors: true,
+      printEmojis: true,
+      printTime: false,
+    );
+    _logger = Logger(printer: logPrinter);
     super.onInit();
   }
 
