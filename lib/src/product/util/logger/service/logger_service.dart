@@ -8,21 +8,20 @@ class LoggerService extends GetxController implements ILoggerService {
 
   @override
   void onInit() {
-    _logger = Logger(
-      printer: PrettyPrinter(
-        methodCount: 2,
-        errorMethodCount: 8,
-        lineLength: 120,
-        colors: true,
-        printEmojis: true,
-        printTime: false,
-      ),
-    );
+    final logPrinter = PrettyPrinter(
+          methodCount: 2,
+          errorMethodCount: 8,
+          lineLength: 120,
+          colors: true,
+          printEmojis: true,
+          printTime: false,
+        ),
+        _logger = Logger(printer: logPrinter);
     super.onInit();
   }
 
   /// This function logs a debug message using a logger instance.
-  /// 
+  ///
   /// Args:
   ///   message (String): The `message` parameter is a string that contains the information or data that
   /// needs to be logged or debugged.
@@ -32,7 +31,7 @@ class LoggerService extends GetxController implements ILoggerService {
   }
 
   /// This function logs an informational message using the `_logger` instance.
-  /// 
+  ///
   /// Args:
   ///   message (String): The `message` parameter is a string that contains the information or message
   /// to be logged.
@@ -42,7 +41,7 @@ class LoggerService extends GetxController implements ILoggerService {
   }
 
   /// The `errorLog` function logs an error message using the `_logger` object.
-  /// 
+  ///
   /// Args:
   ///   message (String): The `message` parameter is a string that contains the error message to be
   /// logged.
@@ -52,7 +51,7 @@ class LoggerService extends GetxController implements ILoggerService {
   }
 
   /// The `warningLog` function in Dart logs a warning message using a logger instance `_logger`.
-  /// 
+  ///
   /// Args:
   ///   message (String): The `message` parameter is a string that contains the warning message to be
   /// logged.
@@ -62,7 +61,7 @@ class LoggerService extends GetxController implements ILoggerService {
   }
 
   /// The `traceLog` function in Dart logs a message using a logger instance `_logger`.
-  /// 
+  ///
   /// Args:
   ///   message (String): The `message` parameter is a string that contains the information or data that
   /// needs to be logged or traced.
