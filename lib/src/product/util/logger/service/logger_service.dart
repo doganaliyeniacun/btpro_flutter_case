@@ -8,6 +8,7 @@ class LoggerService extends GetxController implements ILoggerService {
 
   @override
   void onInit() {
+    super.onInit();
     final logPrinter = PrettyPrinter(
       methodCount: 2,
       errorMethodCount: 8,
@@ -17,7 +18,6 @@ class LoggerService extends GetxController implements ILoggerService {
       printTime: false,
     );
     _logger = Logger(printer: logPrinter);
-    super.onInit();
   }
 
   /// This function logs a debug message using a logger instance.
