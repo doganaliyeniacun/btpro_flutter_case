@@ -6,8 +6,8 @@ import '../../movie/view/movie_view.dart';
 
 mixin HomePageMixin {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final int initialIndex = 0;
+  
+  final int pageInitialIndex = 0;
   final RxInt pageIndex = 0.obs;
 
   final pages = [

@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:btpro_flutter_case/src/features/home/view/home_view.dart';
+import 'package:btpro_flutter_case/src/features/home/view/home_page.dart';
 import 'package:btpro_flutter_case/src/features/movie/view/movie_view.dart';
 import 'package:btpro_flutter_case/src/product/navigation/app_routes.dart';
 import 'package:get/get.dart';

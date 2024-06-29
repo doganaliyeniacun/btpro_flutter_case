@@ -12,17 +12,17 @@ class HomePage extends StatelessWidget with HomePageMixin {
     return SafeArea(
       child: DefaultTabController(
         length: pages.length,
-        initialIndex: initialIndex,
-        child: Obx(() => Scaffold(
-              key: scaffoldKey,
-              body: pages[pageIndex.value],
-              bottomNavigationBar: CustomConvexAppBar(
-                pageItems: pageItems,
-                onTap: (index) {
-                  pageIndex.value = index;
-                },
-              ),
-            )),
+        initialIndex: pageInitialIndex,
+        child: Scaffold(
+          key: scaffoldKey,
+          body: Obx(() => pages[pageIndex.value]),
+          bottomNavigationBar: CustomConvexAppBar(
+            pageItems: pageItems,
+            onTap: (index) {
+              pageIndex.value = index;
+            },
+          ),
+        ),
       ),
     );
   }

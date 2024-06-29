@@ -25,7 +25,13 @@ class FavoriteMovieView extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Obx(() => FavoriteMovieGridView(movies: vm.favoriteMovies?.value ?? [])),
+              Obx(
+                () => Expanded(
+                  child: FavoriteMovieGridView(
+                    movies: vm.favoriteMovies?.value ?? [],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

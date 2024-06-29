@@ -20,7 +20,7 @@ class Movie extends Equatable {
     required this.language,
     required this.country,
     required this.awards,
-    required this.poster,    
+    required this.poster,
     required this.metascore,
     required this.imdbRating,
     required this.imdbVotes,
@@ -78,6 +78,7 @@ class Movie extends Equatable {
 
   @JsonKey(name: 'Metascore')
   final String? metascore;
+
   final String? imdbRating;
   final String? imdbVotes;
 
@@ -137,5 +138,3 @@ class Movie extends Equatable {
         error,
       ];
 }
-
-

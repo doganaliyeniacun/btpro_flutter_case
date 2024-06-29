@@ -9,7 +9,7 @@ import '../service/interface/i_movie_service.dart';
 
 class MovieDetailViewModel extends GetxController {
   late final IMovieService _service;
-  late final IFavoriteMovieService favoriteMoviesService;
+  late final IFavoriteMovieService _favoriteMoviesService;
   late final String? _imdbId;
   late final Movie movie;
   late final AnalyticsService _analyticsService;
@@ -18,13 +18,13 @@ class MovieDetailViewModel extends GetxController {
   @override
   void onInit() async {
     _service = Get.find<IMovieService>();
-    favoriteMoviesService = Get.find<FavoriteMovieService>();
+    _favoriteMoviesService = Get.find<FavoriteMovieService>();
     _analyticsService = Get.find<AnalyticsService>();
 
     _imdbId = Get.arguments;
     movie = _findMovieById(_service.moviesList, _imdbId ?? '');
     isFavorite.value =
-        await favoriteMoviesService.getFavoriteState(_imdbId ?? '');
+        await _favoriteMoviesService.getFavoriteState(_imdbId ?? '');
     await _logMovie();
     super.onInit();
   }
@@ -68,7 +68,7 @@ class MovieDetailViewModel extends GetxController {
     );
     
     final result =
-        await favoriteMoviesService.changeFavoriteState(favoriteMovie);
+        await _favoriteMoviesService.changeFavoriteState(favoriteMovie);
 
     isFavorite.value = result;
   }
