@@ -1,11 +1,14 @@
 import 'package:btpro_flutter_case/src/features/movie/widgets/movie_grid_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
+import '../../../product/navigation/app_routes.dart';
 import '../../../product/resources/app_values.dart';
 import '../model/movie.dart';
 
-class MoviesGridView extends StatelessWidget {
-  const MoviesGridView({
+class MovieGridView extends StatelessWidget {
+  const MovieGridView({
     super.key,
     required this.movies,
   });
@@ -21,7 +24,17 @@ class MoviesGridView extends StatelessWidget {
       gridDelegate: _gridDelegate(),
       itemBuilder: (context, index) {
         final movie = movies[index];
-        return MovieGridCard(movie: movie);
+
+        onTap() => Get.toNamed(
+              AppRoutes.MOVIE_DETAIL,
+              arguments: movie.imdbId,
+            );
+
+        return MovieGridCard(
+          imageUrl: movie.poster,
+          title: movie.title,
+          onTap: onTap,
+        );
       },
     );
   }

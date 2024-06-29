@@ -12,7 +12,7 @@ class FavoriteMovieView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final vm = Get.put<FavoriteMovieViewModel>(FavoriteMovieViewModel());
+    final vm = Get.put(FavoriteMovieViewModel());
 
     return SafeArea(
       child: Scaffold(

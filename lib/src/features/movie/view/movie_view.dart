@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../product/resources/app_values.dart';
-import '../widgets/movies_grid_view.dart';
+import '../widgets/movie_grid_view.dart';
 import '../widgets/search_field.dart';
 
 class MovieView extends StatelessWidget {
@@ -12,7 +12,7 @@ class MovieView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final vm = Get.put<MovieViewModel>(MovieViewModel());
+    final vm = Get.put(MovieViewModel());
 
     return SafeArea(
       child: Scaffold(
@@ -36,7 +36,7 @@ class MovieView extends StatelessWidget {
 
                     case RequestStatus.SUCCESS:
                       return Expanded(
-                        child: MoviesGridView(movies: vm.moviesList),
+                        child: MovieGridView(movies: vm.moviesList),
                       );
                     default:
                       return const SizedBox();
